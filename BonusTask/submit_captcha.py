@@ -13,9 +13,8 @@ import sys
 #Sleep function for fluency
 def delay ():
     time.sleep(random.randint(2,3))
-
 #Get the ChromeDriver and open website in a new tab
-driver = webdriver.Chrome("chromedriver.exe") 
+driver = webdriver.Chrome(os.getcwd()+"\\BonusTask\\chromedriver.exe") 
 delay()
 driver.get("https://safebrowsing.google.com/safebrowsing/report_phish/")
 
