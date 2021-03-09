@@ -30,6 +30,10 @@ elif len(sys.argv)==2:
     driver.find_element_by_id("url").send_keys(url_text)
 else:
     print("Please Give url and Description (If any)")
+    url_text = "https://SampleUrl.com"
+    driver.find_element_by_id("url").send_keys(url_text)
+    Description_text = "Sample Description"
+    driver.find_element_by_id("dq").send_keys(Description_text)
 
 #change iframe and click the recaptcha checkbox
 frames=driver.find_elements_by_tag_name("iframe")
