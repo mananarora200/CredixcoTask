@@ -5,7 +5,6 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 import speech_recognition as sr
-import requests
 import urllib
 import pydub
 import sys 
@@ -13,8 +12,11 @@ import sys
 #Sleep function for fluency
 def delay ():
     time.sleep(random.randint(2,3))
+
 #Get the ChromeDriver and open website in a new tab
-driver = webdriver.Chrome(os.getcwd()+"\\BonusTask\\chromedriver.exe") 
+chrome_options = webdriver.ChromeOptions() 
+chrome_options.add_argument("start-maximized")
+driver = webdriver.Chrome(os.getcwd()+"\\chromedriver.exe",options=chrome_options) 
 delay()
 driver.get("https://safebrowsing.google.com/safebrowsing/report_phish/")
 
@@ -64,11 +66,11 @@ r= sr.Recognizer()
 with sample_audio as source:
     audio = r.record(source)
 key=r.recognize_google(audio)
-
-#Entering the text to the captcha and Submitting the form
+print(key)
+#Entering the text to the capatcha and Submitting the form
 driver.find_element_by_id("audio-response").send_keys(key.lower())
 driver.find_element_by_id("audio-response").send_keys(Keys.ENTER)
 driver.switch_to.default_content()
 delay()
 driver.find_element_by_id("recaptcha-demo-submit").click()
-delay()
+driver.quit()
