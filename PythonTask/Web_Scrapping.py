@@ -58,10 +58,11 @@ if __name__ == "__main__":
                 temp_data = scrapper.get_data(f"https://www.midsouthshooterssupply.com/dept/reloading/primers?currentpage={i+1}",proxy)
                 Data.extend(temp_data)
             #Here we print all the Scrapped data from the Website
-            print(Data)
+            # print(Data)
             #Also write the data in json format
             with open('data.json', 'w') as f:
                 json.dump(Data , f)
-                break
+            print("Written data to data.json")
+            break
         except:
             continue
