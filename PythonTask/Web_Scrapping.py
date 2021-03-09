@@ -40,5 +40,5 @@ if __name__ == "__main__":
     #Here we print all the Scrapped data from the Website
     print(Data)
     #Also write the data in json format
-    with open('test.json', 'w') as f:
+    with open('data.json', 'w') as f:
         json.dump(Data , f)
