@@ -66,7 +66,7 @@ with sample_audio as source:
     audio = r.record(source)
 key=r.recognize_google(audio)
 
-#Entering the text to the capatcha and Submitting the form
+#Entering the text to the captcha and Submitting the form
 driver.find_element_by_id("audio-response").send_keys(key.lower())
 driver.find_element_by_id("audio-response").send_keys(Keys.ENTER)
 driver.switch_to.default_content()
